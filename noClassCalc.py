@@ -1,3 +1,5 @@
+import sys
+
 def toBin(n):
 #isNumeric(n) -> check if all chars in STRING are numbers
     try:
@@ -11,6 +13,12 @@ def toBin(n):
 
     if isinstance(n, int) or isinstance(n, float):
         print("Variable " + str(n) + " is a number. " + str(type(n)))
+        return True
     else:
         print("ERROR: " + str(type(n)) + "NOT A VALID NUMBER")
+        return False
 
+
+def quit():
+    print("\n  ---===|  Goodbye  |===---  \n")
+    sys.exit()
