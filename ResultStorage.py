@@ -1,4 +1,4 @@
 class Results:
 
-       def classTest(self):
-        print("Class results working") 
+  def classTest(self):
+    print("Class results working") 
