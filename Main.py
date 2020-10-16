@@ -1,58 +1,86 @@
 import sys
-from ModelCalc import Calc
-import noClassCalc
+import ModelCalc
+import auxFunctions
 
-#Program Start
+
+#  ---===|  PROGRAM START  |===---  #
+print("\n\t ---===|   Program Start   |===---")
 while True:
 
-#  ---===  FIRST LOOP  ===---  #
-    # Take user direction
+#  ---===| Datatype Selection: FIRST LOOP  |===---  #
+ 
     inputType = ""
     outputType = ""
     outputIteration = 1
+    decision = ""
     while outputIteration < 3:
-        decision = ""
-        confirmIn = input("Enter your input number type: 1 = Bin  |  2 = Dec  |  3 = Hex\n" + 
-        "Type \"Exit\" to quit.\n")
+        print("\n")
+        if outputIteration == 1:
+            print("Select the datatype for your INPUT:\n")
+        else:
+            print("Select the datatype for your OUTPUT:\n")
+        
+        confirmIn = input("1 = Bin  |  2 = Dec  |  3 = Hex\n" + 
+        "Type \"Redo\" to start over, or \"Exit\" to quit.\n")
+
+        # /// MOVE TO MODEL CLASS \\\
         if confirmIn.casefold() == "exit":
-            noClassCalc.quit()
-        elif confirmIn == "1": #Bin
+            auxFunctions.quit()
+        elif confirmIn.casefold() == "redo":
+            outputIteration = 1
+            continue
+        elif confirmIn == "1" or confirmIn.casefold() == "bin": #Bin
             decision = "bin"
             outputIteration += 1
-        elif confirmIn == "2": #Dec
+        elif confirmIn == "2" or confirmIn.casefold() == "dec": #Dec
             decision = "dec"
             outputIteration += 1
-        elif confirmIn == "3": #Hex
+        elif confirmIn == "3" or confirmIn.casefold() == "hex": #Hex
             decision = "hex"
             outputIteration += 1
         else:
             print("Please enter a valid input of 1 - 3, or \"Exit\" to quit.")
         
-        #IF BAD STILL RUNS??
+        # /// MOVE TO MODEL CLASS \\\
+
+        #If invalid input will still execute. Okay because decision value will remain
         if outputIteration == 2: #first successful iteration
             inputType = decision 
         elif outputIteration == 3:
-            outputType = decision #second successful iteration
+            if decision.casefold() == inputType.casefold(): #if the input matches the output (nothing to convert)
+                print("\n!!!  ERROR: Input and Output types cannot match. Please select a different output.  !!!")
+                outputIteration = 2
+            else:
+                outputType = decision #second successful iteration
     
     if outputIteration > 2:
         print("Input is: " + inputType + "\nOutput is: " + outputType)
     else:
         continue
 
-#  ---===  SECOND LOOP  ===---  #
-    # Take user input and verify is valid
-    # ''''''''''''depending on output type
-    userIn = ""
+
+#  ---===|  Input Validation: SECOND LOOP  |===---  #
+    
     inputOkay = False
-    while inputOkay == False:
+    while inputOkay == False: #while input ok?
+
         userIn = input("Type \"Exit\" at any time to end the program.\nEnter a number:\n")
         if userIn.casefold() == "exit":
-            noClassCalc.quit()
+            auxFunctions.quit()
+        elif confirmIn.casefold() == "redo":
+            outputIteration = 1
+            break
         else:
-            inputOkay = noClassCalc.verifyNum(userIn)
-    print()
+            inputOkay = auxFunctions.verifyInput(userIn, inputType)
+
+    if inputOkay == True:
+        print("User input is: \"" + userIn + "\"\n"
+            + "Input type is: " + inputType + "\n"
+            + "Output type is: " + outputType + "\n")
 
 
-    # Third loop?
+#  ---===|  Perform Calculations  |===---  #
+
+
 
 
