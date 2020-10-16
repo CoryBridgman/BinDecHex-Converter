@@ -8,7 +8,7 @@ hexNums = ['0','1','2','3','4','5','6','7','8','9','A','a','B','b','C','c','D','
 def verifyInput(inputNum, numType):
     inputOkay = False
     for i in inputNum:
-        print(i)
+        # print(i)
         if numType.casefold() == "bin":
             if i in binNums:
                 inputOkay = True

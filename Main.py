@@ -1,6 +1,7 @@
 import sys
 import ModelCalc
 import auxFunctions
+import Calculator
 
 
 #  ---===|  PROGRAM START  |===---  #
@@ -8,7 +9,7 @@ print("\n\t ---===|   Program Start   |===---")
 while True:
 
 #  ---===| Datatype Selection: FIRST LOOP  |===---  #
- 
+    userIn = ""
     inputType = ""
     outputType = ""
     outputIteration = 1
@@ -80,7 +81,8 @@ while True:
 
 
 #  ---===|  Perform Calculations  |===---  #
-
-
+    finalResult = Calculator.calculate(userIn, inputType, outputType)
+    print(finalResult[0], finalResult[1])
+    # Send info to storage
 
 
