@@ -1,4 +1,7 @@
-class Results:
+calculations = []
 
-  def classTest(self):
-    print("Class results working") 
+def printAllHistory():
+  for c in calculations:
+    i = 0
+    while i < 2:
+      print(calculations[c[i]])

@@ -1,7 +1,8 @@
-import sys
-import ModelCalc
+# import sys
+# import ModelCalc
 import auxFunctions
 import Calculator
+import ResultStorage
 
 
 #  ---===|  PROGRAM START  |===---  #
@@ -17,12 +18,11 @@ while True:
     while outputIteration < 3:
         print("\n")
         if outputIteration == 1:
-            print("Select the datatype for your INPUT:\n")
+            selectString = "\t-=| Select the INPUT datatype |=-\n"
         else:
-            print("Select the datatype for your OUTPUT:\n")
+            selectString = "\t-=| Select the OUTPUT datatype |=-\n"
         
-        confirmIn = input("1 = Bin  |  2 = Dec  |  3 = Hex\n" + 
-        "Type \"Redo\" to start over, or \"Exit\" to quit.\n")
+        confirmIn = input("Command Menu:\n\"Redo\" to start over\n\"History\" to bring up previous calculations\n\"Exit\" to end the program\n\n"+selectString+"\t1 = Bin  |  2 = Dec  |  3 = Hex\n")
 
         # /// MOVE TO MODEL CLASS \\\
         if confirmIn.casefold() == "exit":
@@ -30,6 +30,16 @@ while True:
         elif confirmIn.casefold() == "redo":
             outputIteration = 1
             continue
+        elif userIn.casefold() == "History":
+            #print previous answers with a index number:
+            # -----
+            # Input: 1234 dec
+            # Answer: 1a2b hex
+            # ID number: 3
+            # -----
+            # Input: ...
+            print("feature not added yet")
+            pass
         elif confirmIn == "1" or confirmIn.casefold() == "bin": #Bin
             decision = "bin"
             outputIteration += 1
@@ -55,7 +65,7 @@ while True:
                 outputType = decision #second successful iteration
     
     if outputIteration > 2:
-        print("Input is: " + inputType + "\nOutput is: " + outputType)
+        print("\n\t-=| Conversions Selected |=-\nInput is: " + inputType + "\nOutput is: " + outputType + "\n")
     else:
         continue
 
@@ -65,12 +75,22 @@ while True:
     inputOkay = False
     while inputOkay == False: #while input ok?
 
-        userIn = input("Type \"Exit\" at any time to end the program.\nEnter a number:\n")
+        userIn = input("Command Menu:\n\"Redo\" to start over\n\"History\" to bring up previous calculations\n\"Exit\" to end the program\n\n\t -=| Please enter a number |=-\n")
         if userIn.casefold() == "exit":
             auxFunctions.quit()
-        elif confirmIn.casefold() == "redo":
+        elif userIn.casefold() == "redo":
             outputIteration = 1
             break
+        elif userIn.casefold() == "History":
+            #print previous answers with a index number:
+            # -----
+            # Input: 1234 dec
+            # Answer: 1a2b hex
+            # ID number: 3
+            # -----
+            # Input: ...
+            print("feature not added yet")
+            pass
         else:
             inputOkay = auxFunctions.verifyInput(userIn, inputType)
 
@@ -81,8 +101,23 @@ while True:
 
 
 #  ---===|  Perform Calculations  |===---  #
-    finalResult = Calculator.calculate(userIn, inputType, outputType)
-    print(finalResult[0], finalResult[1])
-    # Send info to storage
 
+    skipMath = False
+
+    try:
+        if float(userIn) == 0:
+            print("You have entered a value of Zero.\nYour return value is also Zero.\nThere is no conversion to perform.")
+            skipMath = True
+        else:
+            pass
+    except:
+        pass
+
+    if skipMath:
+        print("Result: 0")
+    else:
+        finalResult = Calculator.calculate(userIn, inputType, outputType)
+        print(finalResult[0] + "\nResult:\t" + finalResult[1])
+        # Send info to storage
+        ResultStorage.calculations += finalResult
 
