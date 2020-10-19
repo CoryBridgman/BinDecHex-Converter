@@ -35,6 +35,12 @@ def verifyInput(inputNum, numType):
             inputOkay = False
     return inputOkay
 
+#Math string builder
+# toBin
+# toDec
+# toHex
+    # if input = dec do:
+    # if input = bin do:
 
 
 # Exit the program
