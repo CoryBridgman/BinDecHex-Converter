@@ -1,6 +1,6 @@
 # import sys
 # import ModelCalc
-import auxFunctions
+import AuxFunctions
 import Calculator
 import ResultStorage
 
@@ -26,11 +26,13 @@ while True:
 
         # /// MOVE TO MODEL CLASS \\\
         if confirmIn.casefold() == "exit":
-            auxFunctions.quit()
+            AuxFunctions.quit()
         elif confirmIn.casefold() == "redo":
             outputIteration = 1
             continue
-        elif userIn.casefold() == "History":
+        elif confirmIn.casefold() == "history":
+            print("HISTORY CALL")
+            AuxFunctions.printHistory()
             #print previous answers with a index number:
             # -----
             # Input: 1234 dec
@@ -38,8 +40,8 @@ while True:
             # ID number: 3
             # -----
             # Input: ...
-            print("feature not added yet")
-            pass
+            # print("feature not added yet")
+            # pass
         elif confirmIn == "1" or confirmIn.casefold() == "bin": #Bin
             decision = "bin"
             outputIteration += 1
@@ -77,11 +79,13 @@ while True:
 
         userIn = input("Command Menu:\n\"Redo\" to start over\n\"History\" to bring up previous calculations\n\"Exit\" to end the program\n\n\t -=| Please enter a number |=-\n")
         if userIn.casefold() == "exit":
-            auxFunctions.quit()
+            AuxFunctions.quit()
         elif userIn.casefold() == "redo":
             outputIteration = 1
             break
-        elif userIn.casefold() == "History":
+        elif userIn.casefold() == "history":
+            print("HISTORY CALL")
+            AuxFunctions.printHistory()
             #print previous answers with a index number:
             # -----
             # Input: 1234 dec
@@ -89,10 +93,11 @@ while True:
             # ID number: 3
             # -----
             # Input: ...
-            print("feature not added yet")
-            pass
+
+            # print("feature not added yet")
+            # pass
         else:
-            inputOkay = auxFunctions.verifyInput(userIn, inputType)
+            inputOkay = AuxFunctions.verifyInput(userIn, inputType)
 
     if inputOkay == True:
         print("User input is: \"" + userIn + "\"\n"
@@ -119,5 +124,7 @@ while True:
         finalResult = Calculator.calculate(userIn, inputType, outputType)
         print(finalResult[0] + "\nResult:\t" + finalResult[1])
         # Send info to storage
-        ResultStorage.calculations += finalResult
+        # ResultStorage.calculations += finalResult
+        ResultStorage.addHistory(finalResult)
+
 

@@ -4,9 +4,9 @@ numbers = ['0','1','2','3','4','5','6','7','8','9']
 letters = [('a',10),('b',11),('c',12),('d',13),('e',14),('f',15)]
 
 def calculate(inputNum, inputType, outputType):
-    print(inputNum)
-    print(inputType)
-    print(outputType)
+    # print(inputNum)
+    # print(inputType)
+    # print(outputType)
 
     finalResult = []
     if inputType.casefold() == 'bin':
@@ -213,6 +213,6 @@ def decToHex(inputDec):
                 hexOut = a[0].upper() + hexOut
                 mathOutHex += str(a[1]) + " goes into hex as " + a[0] + "\n"
 
-    print(mathOutHex + hexOut + " hex")
+    # print(mathOutHex + hexOut + " hex")
     return mathOutHex, hexOut
 

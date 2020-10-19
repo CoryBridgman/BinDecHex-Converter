@@ -1,4 +1,5 @@
 import sys
+import ResultStorage
 
 binNums = ['0', '1']
 decNums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -42,6 +43,30 @@ def verifyInput(inputNum, numType):
     # if input = dec do:
     # if input = bin do:
 
+
+#  ---===|  Print History  |===---  #
+
+def printHistory():
+    print("\t-=| Select an option to display calculation history |=-\n" +
+    "1: View entire calclation histroy\n" +
+    "2: View a specific calculation, with math process details\n"+
+    "3: Delete specific calculation from history\n"+
+    "4: Delete entire calculation history")
+    histIn = input("Enter your selection: ")
+    if histIn == '1':
+        ResultStorage.printAllHistory()
+        #view all
+    elif histIn == '2':
+        pass
+        #view one
+    elif histIn == '3':
+        pass
+        #delete one
+    elif histIn == '4':
+        pass
+        #delete all
+    else:
+        print("\"" + histIn + "\" is not a valid entry.")
 
 # Exit the program
 def quit():
