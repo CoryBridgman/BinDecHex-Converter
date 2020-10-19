@@ -31,6 +31,16 @@ def printAllHistory():
         print("Index [" + str(indexNum) + "] : " + c[1])
         indexNum += 1
 
+# -----
+            # Input: 1234 dec
+            # Answer: 1a2b hex
+            # ID number: 3
+            # -----
+            # Input: ...
+
+
+
+            
 # def printTEST():
 #   if len(testArray) == 0:
 #       print("Calculations array is empty")

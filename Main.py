@@ -31,17 +31,8 @@ while True:
             outputIteration = 1
             continue
         elif confirmIn.casefold() == "history":
-            print("HISTORY CALL")
+            # print("HISTORY CALL")
             AuxFunctions.printHistory()
-            #print previous answers with a index number:
-            # -----
-            # Input: 1234 dec
-            # Answer: 1a2b hex
-            # ID number: 3
-            # -----
-            # Input: ...
-            # print("feature not added yet")
-            # pass
         elif confirmIn == "1" or confirmIn.casefold() == "bin": #Bin
             decision = "bin"
             outputIteration += 1
@@ -84,18 +75,8 @@ while True:
             outputIteration = 1
             break
         elif userIn.casefold() == "history":
-            print("HISTORY CALL")
+            # print("HISTORY CALL")
             AuxFunctions.printHistory()
-            #print previous answers with a index number:
-            # -----
-            # Input: 1234 dec
-            # Answer: 1a2b hex
-            # ID number: 3
-            # -----
-            # Input: ...
-
-            # print("feature not added yet")
-            # pass
         else:
             inputOkay = AuxFunctions.verifyInput(userIn, inputType)
 
