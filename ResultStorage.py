@@ -5,6 +5,23 @@ calculations = []
 def addHistory(n):
   calculations.append(n)
 
+def removeHistory(n):
+  pass
+
+def clearHistory():
+  calculations.clear()
+
+def printHistory(n):
+  i = 0
+  n = int(n)
+  print("\n\t-=|  Calculating [input , type] to [type]  |=-\n")
+  while i < len(calculations[0]):
+    if i < 1:
+      print(calculations[n][i])
+    else:
+      print("Result: " + calculations[n][i])
+    i += 1
+
 def printAllHistory():
     if len(calculations) == 0:
       print("Calculations array is empty")
