@@ -4,6 +4,7 @@ import AuxFunctions
 import Calculator
 import ResultStorage
 
+# tesing gitIgnore
 
 #  ---===|  PROGRAM START  |===---  #
 print("\n\t ---===|   Program Start   |===---")

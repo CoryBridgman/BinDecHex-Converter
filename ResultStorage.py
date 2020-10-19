@@ -1,5 +1,7 @@
 # testArray = [("A1\tline 1\nA1\tline 2\nA1\tline 3","A1\tResult: 1 2 3"), ("A2\tline 1\nA2\tline 2\nA2\tline 3", "A2\tResult: 1 2 3")]
 
+# tesing gitIgnore
+
 calculations = []
 
 def addHistory(n):
@@ -40,7 +42,7 @@ def printAllHistory():
 
 
 
-            
+
 # def printTEST():
 #   if len(testArray) == 0:
 #       print("Calculations array is empty")
